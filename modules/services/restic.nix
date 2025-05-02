@@ -24,7 +24,7 @@ let
     lib.pipe opt [
       (lib.replaceStrings [ "-" ] [ "_" ])
       lib.toUpper
-      (lib.add "RCLONE_")
+      (opt: "RCLONE_" + opt)
     ];
 
   toEnvVal = v: if lib.isBool v then lib.boolToString v else v;
